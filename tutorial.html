@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용 방법 - Back Button Locker</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1400px;
+            min-height: 100vh;
+        }
+
+        .ad-sidebar {
+            width: 200px;
+            background-color: #e4e6eb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            flex-shrink: 0;
+        }
+
+        .ad-box {
+            width: 160px;
+            height: 600px;
+            background-color: #ccc;
+            border: 1px solid #bbb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .tutorial-image {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            cursor: zoom-in;
+            transition: transform 0.2s;
+        }
+
+        .tutorial-image:hover {
+            transform: scale(1.01);
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            cursor: grab;
+        }
+
+        #lightbox:active {
+            cursor: grabbing;
+        }
+
+        #zoom-img {
+            max-width: none;
+            max-height: none;
+            transform-origin: center;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        #close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2100;
+        }
+
+        #zoom-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        @media (max-width: 1000px) {
+            .ad-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <aside class="ad-sidebar">
+            <div class="ad-box">ADVERTISEMENT<br>(Left Sidebar)</div>
+        </aside>
+
+        <main class="main-content">
+            <h1>Back Button Locker 사용 가이드</h1>
+            <p style="color: #666; margin-bottom: 20px;">사진을 클릭하면 확대해서 보거나 휠로 조절할 수 있습니다.</p>
+
+            <img src="tutorial/tuto1.PNG" alt="Tutorial 1" class="tutorial-image">
+            <img src="tutorial/tuto2.PNG" alt="Tutorial 2" class="tutorial-image">
+            <img src="tutorial/tuto3.PNG" alt="Tutorial 3" class="tutorial-image">
+
+            <div class="footer">
+                &copy; 2026 Back Button Locker. All rights reserved.
+            </div>
+        </main>
+
+        <aside class="ad-sidebar">
+            <div class="ad-box">ADVERTISEMENT<br>(Right Sidebar)</div>
+        </aside>
+    </div>
+
+    <div id="lightbox">
+        <span id="close-lightbox">&times;</span>
+        <img id="zoom-img" src="" alt="Zoomed Image">
+        <div id="zoom-info">마우스 휠로 확대/축소, 드래그로 이동</div>
+    </div>
+
+    <script src="tutorial.js"></script>
+</body>
+
+</html>
